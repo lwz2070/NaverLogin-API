@@ -1,0 +1,26 @@
+DB Query
+
+create table member (
+    mem_num number PRIMARY KEY not null,
+    mem_id VARCHAR2 (20) not null,
+    mem_password VARCHAR2(20) not null,
+    mem_nick VARCHAR2 (20) not null
+
+);
+
+create table login_history (
+    his_num number PRIMARY KEY not null,
+    mem_num number,
+    his_date date,
+    CONSTRAINT mem_num_FK foreign key(mem_num) REFERENCES member(mem_num)
+);
+
+create table filee (
+    file_num number PRIMARY KEY,
+    file_name VARCHAR2 (200),
+    file_name_clone varchar2 (200)
+);
+
+create sequence member_seq start with 1 INCREMENT by 1 NOMAXVALUE NOMINVALUE;
+create sequence login_history_seq start with 1 INCREMENT by 1 NOMAXVALUE NOMINVALUE;
+create sequence file_seq start with 1 INCREMENT by 1 NOMAXVALUE NOMINVALUE;

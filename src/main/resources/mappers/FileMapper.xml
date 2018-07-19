@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fileSQL">
+	
+	<insert id="fileUpload" parameterType="com.my.bean.FileBean">
+		insert into filee values (file_seq.nextval, #{file_name}, #{file_name_clone})
+	</insert>	
+	
+	<select id="fileList" resultType="com.my.bean.FileBean">
+		select * from filee
+	</select>
+	
+	<select id="fileInfo" parameterType="int" resultType="com.my.bean.FileBean">
+		select * from filee where file_num = #{num}
+	</select>
+	
+</mapper>
